@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Chat Room</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="container">
+    <div *ngFor="let msg of messageList" class="message left">
+      <img class="user-img" [src]="msg.sender.avatarURL" alt="" src="">
+      <div class="msg-detail">
+        <div class="msg-info">
+          <p>
+            {{msg.sender.name}}
+          </p>
+        </div>
+        <div class="msg-content">
+          <span class="triangle"></span>
+          <p class="line-breaker ">{{msg.text}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer no-border>
+  <div class="input-wrap">
+    <textarea #messageInput placeholder="Enter your message!" [(ngModel)]="chatMessage" (keyup.enter)="sendMessage()">
+    </textarea>
+    <button ion-button clear icon-only item-right (click)="sendMessage()">
+      <ion-icon name="ios-send" ios="ios-send" md="md-send"></ion-icon>
+    </button>
+  </div>
+</ion-footer>

@@ -1,0 +1,20 @@
+
+.user-item {
+    display: flex;
+    .user-avatar{
+        flex : 1; 
+        img{
+            width: 30px;
+            height: 30px;
+        }
+    } 
+    .user-name{
+        flex: 2;
+    }
+    .user-presence{
+        flex: 1;
+    }
+    .user-online{
+        color: #32eb32;
+    }
+}

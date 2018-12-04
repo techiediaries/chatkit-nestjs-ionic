@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>
+      Chatkit Demo
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <div text-center>
+    <ion-button  color="light" outline size="large" [routerLink]="'/chat'">
+        <ion-icon name="chatbubbles"></ion-icon>
+        Start chatting
+    </ion-button>
+</div>
+
+<h4>Users</h4>
+<ion-spinner  name="dots" *ngIf="userList.length === 0"></ion-spinner>
+
+<ion-list>
+  <ion-item class="user-item" *ngFor="let user of userList">
+      <div class="user-avatar">
+          <img  [src]="user.avatarURL" alt="">
+      </div>
+      <ion-label class="user-name">
+         {{ user.name }}
+      </ion-label>
+      <div class="user-presence">
+          <ion-icon [class.user-online]="isOnline(user)" name="radio-button-on"></ion-icon>
+      </div>  
+  </ion-item>
+</ion-list>
+</ion-content>
