@@ -13,17 +13,16 @@ export class AuthService {
       private readonly jwtService: JwtService
     ) {
       this.chatkit = new Chatkit({
-        instanceLocator: "v1:us1:8974881e-3870-47b4-9053-14dad6c0e314",
-        key: "b801e52a-971d-42b5-8c60-99636dd974b9:hIpHVBedpyNkmlGtH4w3xuh/9L3t5yKVh4BfUFQF/5c="
+        instanceLocator: "YOUR_INSTANCE_LOCATOR",
+        key: "YOUR_SECRET_KEY"
       })    
     }
     private async createUser(userData: User): Promise<User>{
         return this.userService.create(userData).then((user: User) =>{
           const userId = `${user.name}${user.id}`;
-          const roomId = "19374915";
+          const roomId = "YOUR_ROOM_ID";
           const avatarURL = "https://image.flaticon.com/icons/png/128/149/149071.png";
-          //console.log(user);
-          //console.log("Creating user: ", user.name, user.id)  
+          
           return this.chatkit.createUser({id: userId, 
              name: user.name,
              avatarURL: avatarURL
